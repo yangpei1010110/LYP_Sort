@@ -42,6 +42,14 @@ namespace MyUtils.LSortLib.LRadixSort
             {
                 return new LRadixSortLong(initBufferSize) as LRadixSort<T>;
             }
+            else if (tType == typeof(float))
+            {
+                return new LRadixSortFloat(initBufferSize) as LRadixSort<T>;
+            }
+            else if (tType == typeof(double))
+            {
+                return new LRadixSortDouble(initBufferSize) as LRadixSort<T>;
+            }
             else
             {
                 throw new NotSupportedException();
@@ -96,6 +104,14 @@ namespace MyUtils.LSortLib.LRadixSort
             else if (keySelector is Func<TValue, ulong> ulongSelector)
             {
                 return new LRadixSortGenericULong<TValue>(ulongSelector, initBufferSize);
+            }
+            else if (keySelector is Func<TValue, float> floatSelector)
+            {
+                return new LRadixSortGenericFloat<TValue>(floatSelector, initBufferSize);
+            }
+            else if (keySelector is Func<TValue, double> doubleSelector)
+            {
+                return new LRadixSortGenericDouble<TValue>(doubleSelector, initBufferSize);
             }
             else
             {
