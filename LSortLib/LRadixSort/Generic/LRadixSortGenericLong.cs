@@ -2,7 +2,7 @@
 
 namespace LYP_Sort.LSortLib.LRadixSort.Generic
 {
-    public class LRadixSortGenericLong<TValue> : LRadixSortGeneric<TValue, long>
+    public class LRadixSortGenericLong<TValue> : LRadixSort<TValue, long>
     {
         private TValue[]           _buffer;
         private Func<TValue, long> _keySelector;
@@ -13,7 +13,6 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
             _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
         }
 
-        public static ulong LongToULong(long value) => (ulong)(value + long.MaxValue + 1);
 
         public override void Sort(TValue[] source)
         {

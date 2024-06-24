@@ -2,7 +2,7 @@
 
 namespace LYP_Sort.LSortLib.LRadixSort.Generic
 {
-    public class LRadixSortGenericInt<TValue> : LRadixSortGeneric<TValue, int>
+    public class LRadixSortGenericInt<TValue> : LRadixSort<TValue, int>
     {
         private TValue[]          _buffer;
         private Func<TValue, int> _keySelector;
@@ -12,8 +12,6 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
             _keySelector = keySelector;
             _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
         }
-
-        public static uint IntToUInt(int value) => (uint)(value + int.MaxValue + 1);
 
         public override void Sort(TValue[] source)
         {

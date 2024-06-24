@@ -1,19 +1,15 @@
 ﻿using System;
 
-namespace LYP_Sort.LSortLib.LRadixSort.Generic
+namespace LYP_Sort.LSortLib.LRadixSort.ValueType
 {
-    public class LRadixSortGenericByte<TValue> : LRadixSort<TValue, byte>
+    public class LRadixSortSByte : LRadixSort<sbyte, sbyte>
     {
-        private TValue[]           _buffer;
-        private Func<TValue, byte> _keySelector;
+        private sbyte[] _buffer;
 
-        public LRadixSortGenericByte(Func<TValue, byte> keySelector, int initBufferSize = 0)
-        {
-            _keySelector = keySelector;
-            _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
-        }
+        public LRadixSortSByte(int initBufferSize = 0) =>
+            _buffer = new sbyte[Math.Clamp(initBufferSize, 0, int.MaxValue)];
 
-        public override void Sort(TValue[] source)
+        public override void Sort(sbyte[] source)
         {
             if (_buffer.Length < source.Length)
             {
@@ -22,18 +18,17 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
 
             Array.Copy(source, _buffer, source.Length);
             int length = source.Length;
-
             RadixSortSequential(_buffer, source, length);
         }
 
-        private void RadixSortSequential(TValue[] source, TValue[] dest, int length)
+        private void RadixSortSequential(sbyte[] source, sbyte[] dest, int length)
         {
             Span<int> countArr = stackalloc int[ByteRange];
             countArr.Clear();
 
             for (int i = 0; i < length; i++)
             {
-                byte index = _keySelector(source[i]);
+                byte index = SByteToByte(source[i]);
                 countArr[index] += 1;
             }
 
@@ -46,7 +41,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
 
             for (int i = 0; i < length; i++)
             {
-                byte index = _keySelector(source[i]);
+                byte index = SByteToByte(source[i]);
                 int offsetIndex = offsetArr[index];
                 offsetArr[index] += 1;
                 dest[offsetIndex] = source[i];

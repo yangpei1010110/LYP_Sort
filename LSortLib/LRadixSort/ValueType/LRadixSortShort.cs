@@ -1,39 +1,35 @@
 ﻿using System;
 
-namespace LYP_Sort.LSortLib.LRadixSort.Generic
+namespace LYP_Sort.LSortLib.LRadixSort.ValueType
 {
-    public class LRadixSortGenericByte<TValue> : LRadixSort<TValue, byte>
+    public class LRadixSortShort : LRadixSort<short, short>
     {
-        private TValue[]           _buffer;
-        private Func<TValue, byte> _keySelector;
+        private short[] _buffer;
 
-        public LRadixSortGenericByte(Func<TValue, byte> keySelector, int initBufferSize = 0)
-        {
-            _keySelector = keySelector;
-            _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
-        }
+        public LRadixSortShort(int initBufferSize = 0) =>
+            _buffer = new short[Math.Clamp(initBufferSize, 0, int.MaxValue)];
 
-        public override void Sort(TValue[] source)
+        public override void Sort(short[] source)
         {
             if (_buffer.Length < source.Length)
             {
                 Array.Resize(ref _buffer, source.Length);
             }
 
-            Array.Copy(source, _buffer, source.Length);
             int length = source.Length;
-
-            RadixSortSequential(_buffer, source, length);
+            RadixSortSequential(0, source, _buffer, length);
+            RadixSortSequential(1, _buffer, source, length);
         }
 
-        private void RadixSortSequential(TValue[] source, TValue[] dest, int length)
+        private void RadixSortSequential(byte byteIndex, short[] source, short[] dest, int length)
         {
             Span<int> countArr = stackalloc int[ByteRange];
             countArr.Clear();
+            int byteOffset = byteIndex * 8;
 
             for (int i = 0; i < length; i++)
             {
-                byte index = _keySelector(source[i]);
+                byte index = (byte)((ShortToUShort(source[i]) >> byteOffset) & 0xFF);
                 countArr[index] += 1;
             }
 
@@ -46,7 +42,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
 
             for (int i = 0; i < length; i++)
             {
-                byte index = _keySelector(source[i]);
+                byte index = (byte)((ShortToUShort(source[i]) >> byteOffset) & 0xFF);
                 int offsetIndex = offsetArr[index];
                 offsetArr[index] += 1;
                 dest[offsetIndex] = source[i];

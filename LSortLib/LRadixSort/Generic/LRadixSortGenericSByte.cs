@@ -2,7 +2,7 @@
 
 namespace LYP_Sort.LSortLib.LRadixSort.Generic
 {
-    public class LRadixSortGenericSByte<TValue> : LRadixSortGeneric<TValue, sbyte>
+    public class LRadixSortGenericSByte<TValue> : LRadixSort<TValue, sbyte>
     {
         private TValue[]            _buffer;
         private Func<TValue, sbyte> _keySelector;
@@ -13,7 +13,6 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
             _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
         }
 
-        public static byte SByteToByte(sbyte value) => (byte)(value + sbyte.MaxValue + 1);
 
         public override void Sort(TValue[] source)
         {

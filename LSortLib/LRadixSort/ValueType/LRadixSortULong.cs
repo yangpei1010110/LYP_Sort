@@ -1,20 +1,15 @@
 ﻿using System;
 
-namespace LYP_Sort.LSortLib.LRadixSort.Generic
+namespace LYP_Sort.LSortLib.LRadixSort.ValueType
 {
-    public class LRadixSortGenericShort<TValue> : LRadixSort<TValue, short>
+    public class LRadixSortULong : LRadixSort<ulong, ulong>
     {
-        private TValue[]            _buffer;
-        private Func<TValue, short> _keySelector;
+        private ulong[] _buffer;
 
-        public LRadixSortGenericShort(Func<TValue, short> keySelector, int initBufferSize = 0)
-        {
-            _keySelector = keySelector;
-            _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
-        }
+        public LRadixSortULong(int initBufferSize = 0) =>
+            _buffer = new ulong[Math.Clamp(initBufferSize, 0, int.MaxValue)];
 
-
-        public override void Sort(TValue[] source)
+        public override void Sort(ulong[] source)
         {
             if (_buffer.Length < source.Length)
             {
@@ -22,12 +17,17 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
             }
 
             int length = source.Length;
-
             RadixSortSequential(0, source, _buffer, length);
             RadixSortSequential(1, _buffer, source, length);
+            RadixSortSequential(2, source, _buffer, length);
+            RadixSortSequential(3, _buffer, source, length);
+            RadixSortSequential(4, source, _buffer, length);
+            RadixSortSequential(5, _buffer, source, length);
+            RadixSortSequential(6, source, _buffer, length);
+            RadixSortSequential(7, _buffer, source, length);
         }
 
-        private void RadixSortSequential(byte byteIndex, TValue[] source, TValue[] dest, int length)
+        private void RadixSortSequential(byte byteIndex, ulong[] source, ulong[] dest, int length)
         {
             Span<int> countArr = stackalloc int[ByteRange];
             countArr.Clear();
@@ -35,7 +35,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
 
             for (int i = 0; i < length; i++)
             {
-                byte index = (byte)((ShortToUShort(_keySelector(source[i])) >> byteOffset) & 0xFF);
+                byte index = (byte)((source[i] >> byteOffset) & 0xFF);
                 countArr[index] += 1;
             }
 
@@ -48,7 +48,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
 
             for (int i = 0; i < length; i++)
             {
-                byte index = (byte)((ShortToUShort(_keySelector(source[i])) >> byteOffset) & 0xFF);
+                byte index = (byte)((source[i] >> byteOffset) & 0xFF);
                 int offsetIndex = offsetArr[index];
                 offsetArr[index] += 1;
                 dest[offsetIndex] = source[i];
