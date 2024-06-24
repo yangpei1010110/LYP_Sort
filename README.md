@@ -288,56 +288,56 @@ ClassTypeSort ResultData
 ```ClassType
 | Method          | testCount | Mean          | Error       | Ratio | Allocated |
 |---------------- |---------- |--------------:|------------:|------:|----------:|
-| ArraySortByte   | 1000      |    155.011 us |  16.6713 us |  1.00 |     400 B |
-| RadixSortByte   | 1000      |      9.600 us |   0.2372 us |  0.07 |     400 B |
-| ArraySortSByte  | 1000      |    156.691 us |  14.9125 us |  1.04 |     400 B |
-| RadixSortSByte  | 1000      |      9.358 us |   0.2201 us |  0.07 |     112 B |
-| ArraySortShort  | 1000      |    133.942 us |  22.0519 us |  0.90 |     400 B |
-| RadixSortShort  | 1000      |     15.284 us |   0.4964 us |  0.11 |     400 B |
-| ArraySortUShort | 1000      |    152.958 us |  18.5704 us |  1.00 |     400 B |
-| RadixSortUShort | 1000      |     14.252 us |   0.3221 us |  0.10 |     400 B |
-| ArraySortUInt   | 1000      |    180.698 us |  19.9444 us |  1.17 |     400 B |
-| RadixSortUInt   | 1000      |     27.891 us |   0.7171 us |  0.21 |     400 B |
-| ArraySortInt    | 1000      |    166.159 us |  22.3091 us |  1.19 |     400 B |
-| RadixSortInt    | 1000      |     27.304 us |   0.6465 us |  0.19 |     400 B |
-| ArraySortULong  | 1000      |    185.318 us |  14.7229 us |  1.31 |     400 B |
-| RadixSortULong  | 1000      |     50.896 us |   1.4943 us |  0.37 |     400 B |
-| ArraySortLong   | 1000      |    178.932 us |  16.9581 us |  1.19 |     400 B |
-| RadixSortLong   | 1000      |     55.187 us |   1.4465 us |  0.42 |      64 B |
+| ArraySortByte   | 1000      |    131.540 us |  20.6035 us |  1.00 |     400 B |
+| RadixSortByte   | 1000      |      9.735 us |   0.2244 us |  0.09 |     400 B |
+| ArraySortSByte  | 1000      |    157.327 us |  13.9465 us |  1.53 |     400 B |
+| RadixSortSByte  | 1000      |      9.109 us |   0.1940 us |  0.09 |     400 B |
+| ArraySortShort  | 1000      |    138.812 us |  21.9635 us |  1.09 |     400 B |
+| RadixSortShort  | 1000      |     14.383 us |   0.2986 us |  0.11 |     400 B |
+| ArraySortUShort | 1000      |    158.196 us |  18.1418 us |  1.61 |     400 B |
+| RadixSortUShort | 1000      |     16.064 us |   0.6362 us |  0.16 |     400 B |
+| ArraySortUInt   | 1000      |    169.207 us |  19.9874 us |  1.72 |     400 B |
+| RadixSortUInt   | 1000      |     28.299 us |   0.7447 us |  0.27 |     400 B |
+| ArraySortInt    | 1000      |    162.577 us |  24.3820 us |  1.32 |     400 B |
+| RadixSortInt    | 1000      |     28.141 us |   0.8725 us |  0.28 |     736 B |
+| ArraySortULong  | 1000      |    166.770 us |  20.0751 us |  1.51 |     400 B |
+| RadixSortULong  | 1000      |     49.894 us |   1.2923 us |  0.49 |     400 B |
+| ArraySortLong   | 1000      |    175.468 us |  21.9061 us |  1.78 |     400 B |
+| RadixSortLong   | 1000      |     53.378 us |   1.4340 us |  0.53 |     400 B |
 |                 |           |               |             |       |           |
-| ArraySortByte   | 10000     |    643.454 us |  21.4124 us |  1.00 |     400 B |
-| RadixSortByte   | 10000     |     79.840 us |   2.7216 us |  0.13 |     400 B |
-| ArraySortSByte  | 10000     |    646.593 us |  23.7900 us |  1.01 |      64 B |
-| RadixSortSByte  | 10000     |     73.773 us |   1.8364 us |  0.11 |     400 B |
-| ArraySortShort  | 10000     |  1,204.038 us | 245.3156 us |  2.02 |     400 B |
-| RadixSortShort  | 10000     |    133.812 us |   3.4734 us |  0.21 |     400 B |
-| ArraySortUShort | 10000     |  1,279.659 us | 240.5209 us |  2.14 |     400 B |
-| RadixSortUShort | 10000     |    128.183 us |   2.8990 us |  0.20 |     400 B |
-| ArraySortUInt   | 10000     |    833.271 us |  16.4968 us |  1.24 |     400 B |
-| RadixSortUInt   | 10000     |    243.429 us |   4.8517 us |  0.37 |     400 B |
-| ArraySortInt    | 10000     |    821.100 us |  18.8686 us |  1.28 |     400 B |
-| RadixSortInt    | 10000     |    238.103 us |   3.9560 us |  0.37 |     400 B |
-| ArraySortULong  | 10000     |    833.030 us |  18.4802 us |  1.30 |     400 B |
-| RadixSortULong  | 10000     |    441.686 us |   8.6649 us |  0.68 |     400 B |
-| ArraySortLong   | 10000     |  1,325.575 us | 252.4700 us |  2.21 |     400 B |
-| RadixSortLong   | 10000     |    485.564 us |   8.9001 us |  0.75 |     736 B |
+| ArraySortByte   | 10000     |  1,153.692 us | 218.0185 us |  1.00 |     400 B |
+| RadixSortByte   | 10000     |     77.206 us |   1.8617 us |  0.09 |     400 B |
+| ArraySortSByte  | 10000     |    710.035 us | 122.4008 us |  0.75 |      64 B |
+| RadixSortSByte  | 10000     |     73.127 us |   2.1641 us |  0.08 |     736 B |
+| ArraySortShort  | 10000     |    756.469 us |  26.5226 us |  0.78 |     400 B |
+| RadixSortShort  | 10000     |    125.070 us |   2.6264 us |  0.14 |     400 B |
+| ArraySortUShort | 10000     |    740.483 us |   8.4620 us |  0.60 |     400 B |
+| RadixSortUShort | 10000     |    126.213 us |   2.5135 us |  0.12 |     400 B |
+| ArraySortUInt   | 10000     |    832.759 us |  25.9890 us |  0.85 |     400 B |
+| RadixSortUInt   | 10000     |    297.858 us |  10.5648 us |  0.34 |     400 B |
+| ArraySortInt    | 10000     |    843.641 us |  10.5759 us |  0.59 |     400 B |
+| RadixSortInt    | 10000     |    236.408 us |   4.4257 us |  0.17 |     400 B |
+| ArraySortULong  | 10000     |  1,377.381 us | 263.8605 us |  1.25 |     400 B |
+| RadixSortULong  | 10000     |    463.971 us |   9.2461 us |  0.34 |     112 B |
+| ArraySortLong   | 10000     |    845.090 us |  25.9175 us |  0.87 |     400 B |
+| RadixSortLong   | 10000     |    486.020 us |   9.6560 us |  0.44 |     400 B |
 |                 |           |               |             |       |           |
-| ArraySortByte   | 100000    |  8,285.196 us | 165.6962 us |  1.00 |     400 B |
-| RadixSortByte   | 100000    |  1,574.093 us | 127.2620 us |  0.19 |     400 B |
-| ArraySortSByte  | 100000    |  8,363.930 us | 177.4893 us |  1.01 |     400 B |
-| RadixSortSByte  | 100000    |  1,667.019 us | 134.5462 us |  0.20 |     400 B |
-| ArraySortShort  | 100000    | 10,901.890 us | 215.2203 us |  1.32 |      64 B |
-| RadixSortShort  | 100000    |  3,225.430 us | 190.0014 us |  0.39 |     400 B |
-| ArraySortUShort | 100000    | 10,788.707 us | 213.4914 us |  1.30 |      64 B |
-| RadixSortUShort | 100000    |  2,856.668 us | 163.2455 us |  0.35 |     400 B |
-| ArraySortUInt   | 100000    | 11,575.853 us | 223.0105 us |  1.40 |     400 B |
-| RadixSortUInt   | 100000    |  4,921.064 us | 178.3648 us |  0.60 |      64 B |
-| ArraySortInt    | 100000    | 12,219.817 us | 240.9945 us |  1.47 |     400 B |
-| RadixSortInt    | 100000    |  5,493.026 us | 181.3643 us |  0.66 |     400 B |
-| ArraySortULong  | 100000    | 12,588.642 us | 250.8855 us |  1.52 |     400 B |
-| RadixSortULong  | 100000    | 10,370.970 us | 259.4363 us |  1.26 |     400 B |
-| ArraySortLong   | 100000    | 12,207.548 us | 241.0600 us |  1.47 |     400 B |
-| RadixSortLong   | 100000    | 10,184.056 us | 222.8663 us |  1.23 |     400 B |
+| ArraySortByte   | 100000    |  7,933.538 us | 157.1494 us |  1.00 |     400 B |
+| RadixSortByte   | 100000    |  1,426.461 us | 118.2472 us |  0.17 |     400 B |
+| ArraySortSByte  | 100000    |  8,508.345 us | 167.9675 us |  1.07 |     400 B |
+| RadixSortSByte  | 100000    |  1,658.835 us | 143.4817 us |  0.21 |      64 B |
+| ArraySortShort  | 100000    | 11,133.854 us | 216.1598 us |  1.42 |     400 B |
+| RadixSortShort  | 100000    |  3,164.255 us | 195.2751 us |  0.40 |     400 B |
+| ArraySortUShort | 100000    | 10,517.872 us | 207.5001 us |  1.33 |     112 B |
+| RadixSortUShort | 100000    |  3,095.139 us | 168.2012 us |  0.39 |      64 B |
+| ArraySortUInt   | 100000    | 12,204.662 us | 244.0688 us |  1.53 |     400 B |
+| RadixSortUInt   | 100000    |  4,701.356 us | 184.5410 us |  0.59 |     400 B |
+| ArraySortInt    | 100000    | 12,093.167 us | 237.8599 us |  1.52 |      64 B |
+| RadixSortInt    | 100000    |  4,910.705 us | 197.3270 us |  0.63 |     112 B |
+| ArraySortULong  | 100000    | 12,168.754 us | 240.7449 us |  1.53 |     400 B |
+| RadixSortULong  | 100000    | 10,370.201 us | 351.6483 us |  1.35 |     400 B |
+| ArraySortLong   | 100000    | 12,033.173 us | 240.4887 us |  1.51 |     400 B |
+| RadixSortLong   | 100000    |  9,131.737 us | 268.7225 us |  1.15 |      64 B |
 ```
 
 ClassTypeSort TestCode:
@@ -382,26 +382,26 @@ public class BenchmarkSortWithBytePoint
     public BytePoint<ulong>[]  sourceULong  = Array.Empty<BytePoint<ulong>>();
     public BytePoint<ulong>[]  targetULong  = Array.Empty<BytePoint<ulong>>();
 
-    public LRadixSort<BytePoint<byte>, byte>?     LRadixSortByte;
-    public LRadixSort<BytePoint<sbyte>, sbyte>?   LRadixSortSByte;
-    public LRadixSort<BytePoint<short>, short>?   LRadixSortShort;
-    public LRadixSort<BytePoint<ushort>, ushort>? LRadixSortUShort;
-    public LRadixSort<BytePoint<int>, int>?       LRadixSortInt;
-    public LRadixSort<BytePoint<uint>, uint>?     LRadixSortUInt;
-    public LRadixSort<BytePoint<long>, long>?     LRadixSortLong;
-    public LRadixSort<BytePoint<ulong>, ulong>?   LRadixSortULong;
+    public LRadixSort<BytePoint<byte>>?   LRadixSortByte;
+    public LRadixSort<BytePoint<sbyte>>?  LRadixSortSByte;
+    public LRadixSort<BytePoint<short>>?  LRadixSortShort;
+    public LRadixSort<BytePoint<ushort>>? LRadixSortUShort;
+    public LRadixSort<BytePoint<int>>?    LRadixSortInt;
+    public LRadixSort<BytePoint<uint>>?   LRadixSortUInt;
+    public LRadixSort<BytePoint<long>>?   LRadixSortLong;
+    public LRadixSort<BytePoint<ulong>>?  LRadixSortULong;
 
     [GlobalSetup]
     public void Setup()
     {
-        LRadixSortByte = LRadixSort<BytePoint<byte>, byte>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortSByte = LRadixSort<BytePoint<sbyte>, sbyte>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortShort = LRadixSort<BytePoint<short>, short>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortUShort = LRadixSort<BytePoint<ushort>, ushort>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortInt = LRadixSort<BytePoint<int>, int>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortUInt = LRadixSort<BytePoint<uint>, uint>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortLong = LRadixSort<BytePoint<long>, long>.CreateGeneric(p => p.key, 1_000_000)!;
-        LRadixSortULong = LRadixSort<BytePoint<ulong>, ulong>.CreateGeneric(p => p.key, 1_000_000)!;
+        LRadixSortByte = LRadixSortFactory.CreateGeneric<BytePoint<byte>, byte>(p => p.key, 1_000_000);
+        LRadixSortSByte = LRadixSortFactory.CreateGeneric<BytePoint<sbyte>, sbyte>(p => p.key, 1_000_000)!;
+        LRadixSortShort = LRadixSortFactory.CreateGeneric<BytePoint<short>, short>(p => p.key, 1_000_000)!;
+        LRadixSortUShort = LRadixSortFactory.CreateGeneric<BytePoint<ushort>, ushort>(p => p.key, 1_000_000)!;
+        LRadixSortInt = LRadixSortFactory.CreateGeneric<BytePoint<int>, int>(p => p.key, 1_000_000)!;
+        LRadixSortUInt = LRadixSortFactory.CreateGeneric<BytePoint<uint>, uint>(p => p.key, 1_000_000)!;
+        LRadixSortLong = LRadixSortFactory.CreateGeneric<BytePoint<long>, long>(p => p.key, 1_000_000)!;
+        LRadixSortULong = LRadixSortFactory.CreateGeneric<BytePoint<ulong>, ulong>(p => p.key, 1_000_000)!;
         Random r = new();
 
         sourceByte = new BytePoint<byte>[testCount];
