@@ -2,7 +2,7 @@
 
 namespace LYP_Sort.LSortLib.LRadixSort.ValueType
 {
-    public class LRadixSortInt : LRadixSort<int, int>
+    public class LRadixSortInt : LRadixSort<int>
     {
         private int[] _buffer;
 

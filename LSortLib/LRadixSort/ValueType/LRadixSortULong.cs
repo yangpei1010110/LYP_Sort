@@ -2,7 +2,7 @@
 
 namespace LYP_Sort.LSortLib.LRadixSort.ValueType
 {
-    public class LRadixSortULong : LRadixSort<ulong, ulong>
+    public class LRadixSortULong : LRadixSort<ulong>
     {
         private ulong[] _buffer;
 

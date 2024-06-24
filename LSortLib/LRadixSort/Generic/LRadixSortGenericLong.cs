@@ -2,7 +2,7 @@
 
 namespace LYP_Sort.LSortLib.LRadixSort.Generic
 {
-    public class LRadixSortGenericLong<TValue> : LRadixSort<TValue, long>
+    public class LRadixSortGenericLong<TValue> : LRadixSort<TValue>
     {
         private TValue[]           _buffer;
         private Func<TValue, long> _keySelector;
