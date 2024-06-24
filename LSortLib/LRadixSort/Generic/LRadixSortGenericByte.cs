@@ -28,8 +28,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
 
         private void RadixSortSequential(TValue[] source, TValue[] dest, int length)
         {
-            Span<int> countArr = stackalloc int[ByteRange];
-            countArr.Clear();
+            Array.Clear(countArr, 0, countArr.Length);
 
             for (int i = 0; i < length; i++)
             {
@@ -37,7 +36,6 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
                 countArr[index] += 1;
             }
 
-            Span<int> offsetArr = stackalloc int[ByteRange];
             offsetArr[0] = 0;
             for (int i = 1; i < ByteRange; i++)
             {

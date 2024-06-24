@@ -11,6 +11,8 @@ namespace LYP_Sort.LSortLib.LRadixSort
         ///     byte类型的范围
         /// </summary>
         public const int ByteRange = 256;
+        protected int[] countArr  = new int[ByteRange];
+        protected int[] offsetArr = new int[ByteRange];
 
         protected LRadixSort()
         {
@@ -20,11 +22,8 @@ namespace LYP_Sort.LSortLib.LRadixSort
         public static ushort ShortToUShort(short value) => (ushort)(value + short.MaxValue + 1);
         public static uint   IntToUInt(int       value) => (uint)(value + int.MaxValue + 1);
         public static ulong  LongToULong(long    value) => (ulong)(value + long.MaxValue + 1);
-        
-        public static int Clamp(int value, int min, int max)
-        {
-            return value < min ? min : value > max ? max : value;
-        }
+
+        public static int Clamp(int value, int min, int max) => value < min ? min : value > max ? max : value;
 
         /// <summary>
         ///     对源数组进行排序
