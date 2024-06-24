@@ -20,6 +20,11 @@ namespace LYP_Sort.LSortLib.LRadixSort
         public static ushort ShortToUShort(short value) => (ushort)(value + short.MaxValue + 1);
         public static uint   IntToUInt(int       value) => (uint)(value + int.MaxValue + 1);
         public static ulong  LongToULong(long    value) => (ulong)(value + long.MaxValue + 1);
+        
+        public static int Clamp(int value, int min, int max)
+        {
+            return value < min ? min : value > max ? max : value;
+        }
 
         /// <summary>
         ///     对源数组进行排序

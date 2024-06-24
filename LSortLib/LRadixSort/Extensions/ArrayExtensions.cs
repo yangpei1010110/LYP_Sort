@@ -4,7 +4,7 @@
     {
         public static void RadixSort<T>(this T[] array)
         {
-            LRadixSortFactory.CreateNonGeneric<T>()!.Sort(array);
+            LRadixSortFactory.CreateNonGeneric<T>().Sort(array);
         }
     }
 }

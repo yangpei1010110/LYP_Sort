@@ -10,7 +10,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.Generic
         public LRadixSortGenericShort(Func<TValue, short> keySelector, int initBufferSize = 0)
         {
             _keySelector = keySelector;
-            _buffer = new TValue[Math.Clamp(initBufferSize, 0, int.MaxValue)];
+            _buffer = new TValue[Clamp(initBufferSize, 0, int.MaxValue)];
         }
 
 

@@ -7,7 +7,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.ValueType
         private sbyte[] _buffer;
 
         public LRadixSortSByte(int initBufferSize = 0) =>
-            _buffer = new sbyte[Math.Clamp(initBufferSize, 0, int.MaxValue)];
+            _buffer = new sbyte[Clamp(initBufferSize, 0, int.MaxValue)];
 
         public override void Sort(sbyte[] source)
         {

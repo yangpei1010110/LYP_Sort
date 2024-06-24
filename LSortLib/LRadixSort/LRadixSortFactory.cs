@@ -6,7 +6,7 @@ namespace LYP_Sort.LSortLib.LRadixSort
 {
     public static class LRadixSortFactory
     {
-        public static LRadixSort<T>? CreateNonGeneric<T>(int initBufferSize = 0)
+        public static LRadixSort<T> CreateNonGeneric<T>(int initBufferSize = 0)
         {
             Type tType = typeof(T);
 

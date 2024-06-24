@@ -7,7 +7,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.ValueType
         private long[] _buffer;
 
         public LRadixSortLong(int initBufferSize = 0) =>
-            _buffer = new long[Math.Clamp(initBufferSize, 0, int.MaxValue)];
+            _buffer = new long[Clamp(initBufferSize, 0, int.MaxValue)];
 
         public override void Sort(long[] source)
         {

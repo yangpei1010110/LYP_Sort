@@ -7,7 +7,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.ValueType
         private ushort[] _buffer;
 
         public LRadixSortUShort(int initBufferSize = 0) =>
-            _buffer = new ushort[Math.Clamp(initBufferSize, 0, int.MaxValue)];
+            _buffer = new ushort[Clamp(initBufferSize, 0, int.MaxValue)];
 
         public override void Sort(ushort[] source)
         {

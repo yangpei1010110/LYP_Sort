@@ -6,7 +6,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.ValueType
     {
         private int[] _buffer;
 
-        public LRadixSortInt(int initBufferSize = 0) => _buffer = new int[Math.Clamp(initBufferSize, 0, int.MaxValue)];
+        public LRadixSortInt(int initBufferSize = 0) => _buffer = new int[Clamp(initBufferSize, 0, int.MaxValue)];
 
         public override void Sort(int[] source)
         {

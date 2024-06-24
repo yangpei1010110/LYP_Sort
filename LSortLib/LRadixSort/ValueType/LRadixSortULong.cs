@@ -7,7 +7,7 @@ namespace LYP_Sort.LSortLib.LRadixSort.ValueType
         private ulong[] _buffer;
 
         public LRadixSortULong(int initBufferSize = 0) =>
-            _buffer = new ulong[Math.Clamp(initBufferSize, 0, int.MaxValue)];
+            _buffer = new ulong[Clamp(initBufferSize, 0, int.MaxValue)];
 
         public override void Sort(ulong[] source)
         {
