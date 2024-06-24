@@ -44,7 +44,7 @@ namespace MyUtils.LSortLib.LRadixSort
             }
             else
             {
-                throw new NotSupportedException($"Not supported type: {tType}");
+                throw new NotSupportedException();
             }
         }
 
@@ -99,7 +99,7 @@ namespace MyUtils.LSortLib.LRadixSort
             }
             else
             {
-                throw new NotSupportedException($"Not supported key type: {typeof(TKey)}");
+                throw new NotSupportedException();
             }
         }
     }

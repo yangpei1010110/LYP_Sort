@@ -4,10 +4,15 @@ using MyUtils.LSortLib.LRadixSort.ValueType;
 namespace MyUtils.LSortLib.LRadixSort
 {
     /// <summary>
-    ///     基数排序泛型类
+    ///     This class provides a generic implementation of Radix Sort.
     /// </summary>
     public class LRadixSort<TValue>
     {
+        /// <summary>
+        ///     Singleton instance of LRadixSort for the specific type TValue.
+        ///     It returns the shared instance of the appropriate LRadixSort subclass based on the type of TValue.
+        ///     If TValue is not a supported type, it throws a NotSupportedException.
+        /// </summary>
         public static LRadixSort<TValue> Shared
         {
             get
@@ -53,28 +58,39 @@ namespace MyUtils.LSortLib.LRadixSort
         }
 
         /// <summary>
-        ///     byte类型的范围
+        ///     The range of byte type.
         /// </summary>
         public const int ByteRange = 256;
         protected int[] countArr  = new int[ByteRange];
         protected int[] offsetArr = new int[ByteRange];
 
+        /// <summary>
+        ///     Protected constructor to prevent direct instantiation.
+        /// </summary>
         protected LRadixSort()
         {
         }
 
-        public static byte   SByteToByte(sbyte   value) => (byte)(value + sbyte.MaxValue + 1);
+        /// <summary>
+        ///     These methods convert signed types to unsigned types by adding the maximum value of the signed type plus one.
+        /// </summary>
+        public static byte SByteToByte(sbyte value) => (byte)(value + sbyte.MaxValue + 1);
+
         public static ushort ShortToUShort(short value) => (ushort)(value + short.MaxValue + 1);
         public static uint   IntToUInt(int       value) => (uint)(value + int.MaxValue + 1);
         public static ulong  LongToULong(long    value) => (ulong)(value + long.MaxValue + 1);
 
+        /// <summary>
+        ///     This method clamps a value between a minimum and maximum value.
+        /// </summary>
         public static int Clamp(int value, int min, int max) => value < min ? min : value > max ? max : value;
 
         /// <summary>
-        ///     对源数组进行排序
-        ///     这是一个虚方法，需要在派生类中实现具体的排序逻辑。
+        ///     This method sorts an array of type TValue.
+        ///     It is a virtual method and needs to be implemented in the derived classes.
+        ///     If called directly from the base class, it throws a NotSupportedException.
         /// </summary>
-        /// <param name="source">需要排序的源数组</param>
+        /// <param name="source">The array to be sorted.</param>
         public virtual void Sort(TValue[] source)
         {
             throw new NotSupportedException();
