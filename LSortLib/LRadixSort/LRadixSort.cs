@@ -7,6 +7,8 @@ namespace LSortLib.LRadixSort
     /// </summary>
     public class LRadixSort<TValue>
     {
+        public static LRadixSort<TValue> Shared = new LRadixSort<TValue>();
+
         /// <summary>
         ///     byte类型的范围
         /// </summary>

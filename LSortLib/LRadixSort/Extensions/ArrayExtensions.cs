@@ -6,5 +6,10 @@
         {
             LRadixSortFactory.CreateNonGeneric<T>().Sort(array);
         }
+
+        public static void RadixSortShared<T>(this T[] array)
+        {
+            LRadixSort<T>.Shared.Sort(array);
+        }
     }
 }
