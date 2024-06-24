@@ -1,7 +1,7 @@
 ﻿using System;
-using LSortLib.LRadixSort.ValueType;
+using MyUtils.LSortLib.LRadixSort.ValueType;
 
-namespace LSortLib.LRadixSort
+namespace MyUtils.LSortLib.LRadixSort
 {
     /// <summary>
     ///     基数排序泛型类
