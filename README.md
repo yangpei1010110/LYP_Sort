@@ -1,5 +1,62 @@
 Simple Zero Alloc Sort For Unity Game
 
+How To Use This:
+
+Example 1 Base Value Type:
+```csharp
+// you can use like this
+Random random = new();
+int[] randomArray = new int[10];
+for (int i = 0; i < randomArray.Length; i++)
+{
+    randomArray[i] = random.Next(100);
+}
+
+// before data 15,7,53,54,55,53,54,14,91,64
+Console.WriteLine($"before data {string.Join(',', randomArray)}"); 
+
+// RadixSortShared or RadixSort
+randomArray.RadixSortShared(); // randomArray.RadixSort();
+
+// after data 7,14,15,53,53,54,54,55,64,91
+Console.WriteLine($"after data {string.Join(',', randomArray)}"); 
+```
+
+Example 2 Reference Type:
+```csharp
+public class TempClass
+{
+    public int  Index;
+    public byte AnyData;
+    public override string ToString()
+    {
+        return $"{Index}:";
+    }
+}
+
+// you can use like this
+Random random = new();
+TempClass[] randomArray = new TempClass[10];
+for (int i = 0; i < randomArray.Length; i++)
+{
+    randomArray[i] = new TempClass()
+    {
+        Index = random.Next(100),
+        AnyData = 0,
+    };
+}
+// before data 70:,85:,45:,39:,66:,1:,9:,5:,59:,85:
+Console.WriteLine($"before data {string.Join(',', randomArray.Select(tc => tc.ToString()))}");
+// cache this sorter
+LRadixSort<TempClass> sorter = LRadixSortFactory.CreateGeneric<TempClass, int>(tc => tc.Index);
+// multiple use
+sorter.Sort(randomArray);
+sorter.Sort(randomArray);
+// after data 1:,5:,9:,39:,45:,59:,66:,70:,85:,85:
+Console.WriteLine($"after data {string.Join(',', randomArray.Select(tc => tc.ToString()))}");
+```
+
+
 BenchmarkDotNet:
 ValueTypeSort ResultData:
 
