@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LYP_Sort.LSortLib.LRadixSort
+namespace LSortLib.LRadixSort
 {
     /// <summary>
     ///     基数排序泛型类

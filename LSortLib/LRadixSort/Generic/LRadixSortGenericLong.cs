@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LYP_Sort.LSortLib.LRadixSort.Generic
+namespace LSortLib.LRadixSort.Generic
 {
     public class LRadixSortGenericLong<TValue> : LRadixSort<TValue>
     {

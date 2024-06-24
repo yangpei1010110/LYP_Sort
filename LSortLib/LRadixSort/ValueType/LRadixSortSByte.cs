@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LYP_Sort.LSortLib.LRadixSort.ValueType
+namespace LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortSByte : LRadixSort<sbyte>
     {

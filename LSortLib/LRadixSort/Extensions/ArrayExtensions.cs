@@ -1,4 +1,4 @@
-﻿namespace LYP_Sort.LSortLib.LRadixSort.Extensions
+﻿namespace LSortLib.LRadixSort.Extensions
 {
     public static class ArrayExtensions
     {
