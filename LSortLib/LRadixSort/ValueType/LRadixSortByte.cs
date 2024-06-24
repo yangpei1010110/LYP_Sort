@@ -4,7 +4,8 @@ namespace LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortByte : LRadixSort<byte>
     {
-        private byte[] _buffer;
+        public new static LRadixSortByte Shared = new LRadixSortByte();
+        private           byte[]         _buffer;
 
         public LRadixSortByte(int initBufferSize = 0) =>
             _buffer = new byte[Clamp(initBufferSize, 0, int.MaxValue)];

@@ -4,7 +4,8 @@ namespace LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortULong : LRadixSort<ulong>
     {
-        private ulong[] _buffer;
+        public new static LRadixSortULong Shared = new LRadixSortULong();
+        private           ulong[]         _buffer;
 
         public LRadixSortULong(int initBufferSize = 0) =>
             _buffer = new ulong[Clamp(initBufferSize, 0, int.MaxValue)];

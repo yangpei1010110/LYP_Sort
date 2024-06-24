@@ -4,7 +4,8 @@ namespace LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortUInt : LRadixSort<uint>
     {
-        private uint[] _buffer;
+        public new static LRadixSortUInt Shared = new LRadixSortUInt();
+        private           uint[]         _buffer;
 
         public LRadixSortUInt(int initBufferSize = 0) =>
             _buffer = new uint[Clamp(initBufferSize, 0, int.MaxValue)];

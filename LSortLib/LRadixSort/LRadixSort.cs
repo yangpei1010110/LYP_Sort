@@ -1,4 +1,5 @@
 ﻿using System;
+using LSortLib.LRadixSort.ValueType;
 
 namespace LSortLib.LRadixSort
 {
@@ -7,7 +8,49 @@ namespace LSortLib.LRadixSort
     /// </summary>
     public class LRadixSort<TValue>
     {
-        public static LRadixSort<TValue> Shared = new LRadixSort<TValue>();
+        public static LRadixSort<TValue> Shared
+        {
+            get
+            {
+                Type valueType = typeof(TValue);
+                if (valueType == typeof(sbyte))
+                {
+                    return LRadixSortSByte.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(byte))
+                {
+                    return LRadixSortByte.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(short))
+                {
+                    return LRadixSortShort.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(ushort))
+                {
+                    return LRadixSortUShort.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(int))
+                {
+                    return LRadixSortInt.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(uint))
+                {
+                    return LRadixSortUInt.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(long))
+                {
+                    return LRadixSortLong.Shared as LRadixSort<TValue>;
+                }
+                else if (valueType == typeof(ulong))
+                {
+                    return LRadixSortULong.Shared as LRadixSort<TValue>;
+                }
+                else
+                {
+                    throw new NotSupportedException();
+                }
+            }
+        }
 
         /// <summary>
         ///     byte类型的范围

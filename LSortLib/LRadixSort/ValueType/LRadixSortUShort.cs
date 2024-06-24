@@ -4,7 +4,8 @@ namespace LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortUShort : LRadixSort<ushort>
     {
-        private ushort[] _buffer;
+        public new static LRadixSortUShort Shared = new LRadixSortUShort();
+        private           ushort[]         _buffer;
 
         public LRadixSortUShort(int initBufferSize = 0) =>
             _buffer = new ushort[Clamp(initBufferSize, 0, int.MaxValue)];
