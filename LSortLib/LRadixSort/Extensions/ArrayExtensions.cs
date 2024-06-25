@@ -24,7 +24,6 @@ namespace MyUtils.LSortLib.LRadixSort.Extensions
         public static void RadixSort<T>(this T[] array)
         {
             LRadixSortFactory.CreateNonGeneric<T>(array.Length).Sort(array);
-            LRadixSortFactory.CreateNonGeneric<T>().Sort(array);
         }
 
         /// <summary>

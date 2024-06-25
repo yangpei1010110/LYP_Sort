@@ -60,7 +60,7 @@ namespace MyUtils.LSortLib.LRadixSort
         /// <summary>
         ///     The range of byte type.
         /// </summary>
-        public const int ByteRange = 256;
+        protected const int ByteRange = 256;
         protected int[] countArr  = new int[ByteRange];
         protected int[] offsetArr = new int[ByteRange];
 
@@ -74,16 +74,16 @@ namespace MyUtils.LSortLib.LRadixSort
         /// <summary>
         ///     These methods convert signed types to unsigned types by adding the maximum value of the signed type plus one.
         /// </summary>
-        public static byte SByteToByte(sbyte value) => (byte)(value + sbyte.MaxValue + 1);
+        protected static byte SByteToByte(sbyte value) => (byte)(value + sbyte.MaxValue + 1);
 
-        public static ushort ShortToUShort(short value) => (ushort)(value + short.MaxValue + 1);
-        public static uint   IntToUInt(int       value) => (uint)(value + int.MaxValue + 1);
-        public static ulong  LongToULong(long    value) => (ulong)(value + long.MaxValue + 1);
+        protected static ushort ShortToUShort(short value) => (ushort)(value + short.MaxValue + 1);
+        protected static uint   IntToUInt(int       value) => (uint)(value + int.MaxValue + 1);
+        protected static ulong  LongToULong(long    value) => (ulong)(value + long.MaxValue + 1);
 
         /// <summary>
         ///     This method clamps a value between a minimum and maximum value.
         /// </summary>
-        public static int Clamp(int value, int min, int max) => value < min ? min : value > max ? max : value;
+        protected static int Clamp(int value, int min, int max) => value < min ? min : value > max ? max : value;
 
         /// <summary>
         ///     This method sorts an array of type TValue.
