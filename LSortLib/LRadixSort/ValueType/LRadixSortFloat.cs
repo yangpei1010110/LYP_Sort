@@ -4,7 +4,7 @@ namespace MyUtils.LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortFloat : LRadixSort<float>
     {
-        public new static LRadixSortInt Shared = new LRadixSortInt();
+        public new static LRadixSortFloat Shared = new LRadixSortFloat();
         private           float[]       _buffer;
 
         public LRadixSortFloat(int initBufferSize = 0) => _buffer = new float[Clamp(initBufferSize, 0, int.MaxValue)];
