@@ -5,7 +5,7 @@ namespace MyUtils.LSortLib.LRadixSort.ValueType
     public class LRadixSortFloat : LRadixSort<float>
     {
         public new static LRadixSortFloat Shared = new LRadixSortFloat();
-        private           float[]       _buffer;
+        private           float[]         _buffer;
 
         public LRadixSortFloat(int initBufferSize = 0) => _buffer = new float[Clamp(initBufferSize, 0, int.MaxValue)];
 
@@ -23,6 +23,8 @@ namespace MyUtils.LSortLib.LRadixSort.ValueType
             RadixSortSequential(3, _buffer, source, length);
         }
 
+        private int[] intTemp = new int[1];
+
         private void RadixSortSequential(byte byteIndex, float[] source, float[] dest, int length)
         {
             Array.Clear(countArr, 0, countArr.Length);
@@ -30,7 +32,8 @@ namespace MyUtils.LSortLib.LRadixSort.ValueType
 
             for (int i = 0; i < length; i++)
             {
-                int intVal = BitConverter.ToInt32(BitConverter.GetBytes(source[i]), 0);
+                Buffer.BlockCopy(source, i * 4, intTemp, 0, 4);
+                int intVal = intTemp[0];
                 byte index = (byte)((IntToUInt(intVal) >> byteOffset) & 0xFF);
                 countArr[index] += 1;
             }
@@ -44,7 +47,8 @@ namespace MyUtils.LSortLib.LRadixSort.ValueType
 
             for (int i = 0; i < length; i++)
             {
-                int intVal = BitConverter.ToInt32(BitConverter.GetBytes(source[i]), 0);
+                Buffer.BlockCopy(source, i * 4, intTemp, 0, 4);
+                int intVal = intTemp[0];
                 byte index = (byte)((IntToUInt(intVal) >> byteOffset) & 0xFF);
                 int offsetIndex = offsetArr[index];
                 offsetArr[index] += 1;

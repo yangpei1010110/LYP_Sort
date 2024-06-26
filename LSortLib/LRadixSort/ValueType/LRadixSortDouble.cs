@@ -5,7 +5,7 @@ namespace MyUtils.LSortLib.LRadixSort.ValueType
     public class LRadixSortDouble : LRadixSort<double>
     {
         public new static LRadixSortDouble Shared = new LRadixSortDouble();
-        private           double[]       _buffer;
+        private           double[]         _buffer;
 
         public LRadixSortDouble(int initBufferSize = 0) =>
             _buffer = new double[Clamp(initBufferSize, 0, int.MaxValue)];
