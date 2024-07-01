@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyUtils.LSortLib.LRadixSort.ValueType
+namespace LYP_Utils.LSortLib.LRadixSort.ValueType
 {
     public class LRadixSortInt : LRadixSort<int>
     {

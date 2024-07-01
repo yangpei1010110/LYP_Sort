@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyUtils.LSortLib.LRadixSort.Extensions
+namespace LYP_Utils.LSortLib.LRadixSort.Extensions
 {
     /// <summary>
     ///     这个类提供了一些扩展方法，用于对数组进行基数排序。

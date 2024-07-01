@@ -1,7 +1,7 @@
 ﻿using System;
-using MyUtils.LSortLib.LRadixSort.ValueType;
+using LYP_Utils.LSortLib.LRadixSort.ValueType;
 
-namespace MyUtils.LSortLib.LRadixSort
+namespace LYP_Utils.LSortLib.LRadixSort
 {
     /// <summary>
     ///     This class provides a generic implementation of Radix Sort.

@@ -1,8 +1,8 @@
 ﻿using System;
-using MyUtils.LSortLib.LRadixSort.Generic;
-using MyUtils.LSortLib.LRadixSort.ValueType;
+using LYP_Utils.LSortLib.LRadixSort.Generic;
+using LYP_Utils.LSortLib.LRadixSort.ValueType;
 
-namespace MyUtils.LSortLib.LRadixSort
+namespace LYP_Utils.LSortLib.LRadixSort
 {
     public static class LRadixSortFactory
     {
