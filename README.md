@@ -1,4 +1,4 @@
-Simple Zero Alloc Sort For Unity Game
+dotnet standard 2.0 - Zero Alloc Sort Class For Game
 
 How To Use This:
 
