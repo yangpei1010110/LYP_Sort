@@ -87,10 +87,7 @@ sorter.Sort(randomArray);
 Console.WriteLine($"after data {string.Join(',', randomArray.Select(tc => tc.ToString()))}");
 ```
 
-
-BenchmarkDotNet:
-ValueTypeSort ResultData:
-
+Benchmark ValueTypeSort
 ```ValueType
 | Method          | testCount | Mean          | Error       | Ratio | Allocated |
 |---------------- |---------- |--------------:|------------:|------:|----------:|
@@ -163,14 +160,64 @@ ValueTypeSort ResultData:
 | RadixSortLong   | 1000000   | 17,445.317 us | 657.8060 us |  0.66 |     400 B |
 ```
 
-ValueTypeSort TestCode:
+Benchmark ClassTypeSort
+```ClassType
+| Method          | testCount | Mean          | Error       | Ratio | Allocated |
+|---------------- |---------- |--------------:|------------:|------:|----------:|
+| ArraySortByte   | 1000      |    131.540 us |  20.6035 us |  1.00 |     400 B |
+| RadixSortByte   | 1000      |      9.735 us |   0.2244 us |  0.09 |     400 B |
+| ArraySortSByte  | 1000      |    157.327 us |  13.9465 us |  1.53 |     400 B |
+| RadixSortSByte  | 1000      |      9.109 us |   0.1940 us |  0.09 |     400 B |
+| ArraySortShort  | 1000      |    138.812 us |  21.9635 us |  1.09 |     400 B |
+| RadixSortShort  | 1000      |     14.383 us |   0.2986 us |  0.11 |     400 B |
+| ArraySortUShort | 1000      |    158.196 us |  18.1418 us |  1.61 |     400 B |
+| RadixSortUShort | 1000      |     16.064 us |   0.6362 us |  0.16 |     400 B |
+| ArraySortUInt   | 1000      |    169.207 us |  19.9874 us |  1.72 |     400 B |
+| RadixSortUInt   | 1000      |     28.299 us |   0.7447 us |  0.27 |     400 B |
+| ArraySortInt    | 1000      |    162.577 us |  24.3820 us |  1.32 |     400 B |
+| RadixSortInt    | 1000      |     28.141 us |   0.8725 us |  0.28 |     736 B |
+| ArraySortULong  | 1000      |    166.770 us |  20.0751 us |  1.51 |     400 B |
+| RadixSortULong  | 1000      |     49.894 us |   1.2923 us |  0.49 |     400 B |
+| ArraySortLong   | 1000      |    175.468 us |  21.9061 us |  1.78 |     400 B |
+| RadixSortLong   | 1000      |     53.378 us |   1.4340 us |  0.53 |     400 B |
+|                 |           |               |             |       |           |
+| ArraySortByte   | 10000     |  1,153.692 us | 218.0185 us |  1.00 |     400 B |
+| RadixSortByte   | 10000     |     77.206 us |   1.8617 us |  0.09 |     400 B |
+| ArraySortSByte  | 10000     |    710.035 us | 122.4008 us |  0.75 |      64 B |
+| RadixSortSByte  | 10000     |     73.127 us |   2.1641 us |  0.08 |     736 B |
+| ArraySortShort  | 10000     |    756.469 us |  26.5226 us |  0.78 |     400 B |
+| RadixSortShort  | 10000     |    125.070 us |   2.6264 us |  0.14 |     400 B |
+| ArraySortUShort | 10000     |    740.483 us |   8.4620 us |  0.60 |     400 B |
+| RadixSortUShort | 10000     |    126.213 us |   2.5135 us |  0.12 |     400 B |
+| ArraySortUInt   | 10000     |    832.759 us |  25.9890 us |  0.85 |     400 B |
+| RadixSortUInt   | 10000     |    297.858 us |  10.5648 us |  0.34 |     400 B |
+| ArraySortInt    | 10000     |    843.641 us |  10.5759 us |  0.59 |     400 B |
+| RadixSortInt    | 10000     |    236.408 us |   4.4257 us |  0.17 |     400 B |
+| ArraySortULong  | 10000     |  1,377.381 us | 263.8605 us |  1.25 |     400 B |
+| RadixSortULong  | 10000     |    463.971 us |   9.2461 us |  0.34 |     112 B |
+| ArraySortLong   | 10000     |    845.090 us |  25.9175 us |  0.87 |     400 B |
+| RadixSortLong   | 10000     |    486.020 us |   9.6560 us |  0.44 |     400 B |
+|                 |           |               |             |       |           |
+| ArraySortByte   | 100000    |  7,933.538 us | 157.1494 us |  1.00 |     400 B |
+| RadixSortByte   | 100000    |  1,426.461 us | 118.2472 us |  0.17 |     400 B |
+| ArraySortSByte  | 100000    |  8,508.345 us | 167.9675 us |  1.07 |     400 B |
+| RadixSortSByte  | 100000    |  1,658.835 us | 143.4817 us |  0.21 |      64 B |
+| ArraySortShort  | 100000    | 11,133.854 us | 216.1598 us |  1.42 |     400 B |
+| RadixSortShort  | 100000    |  3,164.255 us | 195.2751 us |  0.40 |     400 B |
+| ArraySortUShort | 100000    | 10,517.872 us | 207.5001 us |  1.33 |     112 B |
+| RadixSortUShort | 100000    |  3,095.139 us | 168.2012 us |  0.39 |      64 B |
+| ArraySortUInt   | 100000    | 12,204.662 us | 244.0688 us |  1.53 |     400 B |
+| RadixSortUInt   | 100000    |  4,701.356 us | 184.5410 us |  0.59 |     400 B |
+| ArraySortInt    | 100000    | 12,093.167 us | 237.8599 us |  1.52 |      64 B |
+| RadixSortInt    | 100000    |  4,910.705 us | 197.3270 us |  0.63 |     112 B |
+| ArraySortULong  | 100000    | 12,168.754 us | 240.7449 us |  1.53 |     400 B |
+| RadixSortULong  | 100000    | 10,370.201 us | 351.6483 us |  1.35 |     400 B |
+| ArraySortLong   | 100000    | 12,033.173 us | 240.4887 us |  1.51 |     400 B |
+| RadixSortLong   | 100000    |  9,131.737 us | 268.7225 us |  1.15 |      64 B |
+```
 
+Benchmark ValueTypeSort code
 ```csharp
-using BenchmarkDotNet.Attributes;
-using LYP_Sort.LSortLib.LRadixSort;
-
-namespace LYP_Sort_Test;
-
 [MemoryDiagnoser]
 public class BenchmarkSortWithValueType
 {
@@ -376,71 +423,8 @@ public class BenchmarkSortWithValueType
 }
 ```
 
-ClassTypeSort ResultData
-
-```ClassType
-| Method          | testCount | Mean          | Error       | Ratio | Allocated |
-|---------------- |---------- |--------------:|------------:|------:|----------:|
-| ArraySortByte   | 1000      |    131.540 us |  20.6035 us |  1.00 |     400 B |
-| RadixSortByte   | 1000      |      9.735 us |   0.2244 us |  0.09 |     400 B |
-| ArraySortSByte  | 1000      |    157.327 us |  13.9465 us |  1.53 |     400 B |
-| RadixSortSByte  | 1000      |      9.109 us |   0.1940 us |  0.09 |     400 B |
-| ArraySortShort  | 1000      |    138.812 us |  21.9635 us |  1.09 |     400 B |
-| RadixSortShort  | 1000      |     14.383 us |   0.2986 us |  0.11 |     400 B |
-| ArraySortUShort | 1000      |    158.196 us |  18.1418 us |  1.61 |     400 B |
-| RadixSortUShort | 1000      |     16.064 us |   0.6362 us |  0.16 |     400 B |
-| ArraySortUInt   | 1000      |    169.207 us |  19.9874 us |  1.72 |     400 B |
-| RadixSortUInt   | 1000      |     28.299 us |   0.7447 us |  0.27 |     400 B |
-| ArraySortInt    | 1000      |    162.577 us |  24.3820 us |  1.32 |     400 B |
-| RadixSortInt    | 1000      |     28.141 us |   0.8725 us |  0.28 |     736 B |
-| ArraySortULong  | 1000      |    166.770 us |  20.0751 us |  1.51 |     400 B |
-| RadixSortULong  | 1000      |     49.894 us |   1.2923 us |  0.49 |     400 B |
-| ArraySortLong   | 1000      |    175.468 us |  21.9061 us |  1.78 |     400 B |
-| RadixSortLong   | 1000      |     53.378 us |   1.4340 us |  0.53 |     400 B |
-|                 |           |               |             |       |           |
-| ArraySortByte   | 10000     |  1,153.692 us | 218.0185 us |  1.00 |     400 B |
-| RadixSortByte   | 10000     |     77.206 us |   1.8617 us |  0.09 |     400 B |
-| ArraySortSByte  | 10000     |    710.035 us | 122.4008 us |  0.75 |      64 B |
-| RadixSortSByte  | 10000     |     73.127 us |   2.1641 us |  0.08 |     736 B |
-| ArraySortShort  | 10000     |    756.469 us |  26.5226 us |  0.78 |     400 B |
-| RadixSortShort  | 10000     |    125.070 us |   2.6264 us |  0.14 |     400 B |
-| ArraySortUShort | 10000     |    740.483 us |   8.4620 us |  0.60 |     400 B |
-| RadixSortUShort | 10000     |    126.213 us |   2.5135 us |  0.12 |     400 B |
-| ArraySortUInt   | 10000     |    832.759 us |  25.9890 us |  0.85 |     400 B |
-| RadixSortUInt   | 10000     |    297.858 us |  10.5648 us |  0.34 |     400 B |
-| ArraySortInt    | 10000     |    843.641 us |  10.5759 us |  0.59 |     400 B |
-| RadixSortInt    | 10000     |    236.408 us |   4.4257 us |  0.17 |     400 B |
-| ArraySortULong  | 10000     |  1,377.381 us | 263.8605 us |  1.25 |     400 B |
-| RadixSortULong  | 10000     |    463.971 us |   9.2461 us |  0.34 |     112 B |
-| ArraySortLong   | 10000     |    845.090 us |  25.9175 us |  0.87 |     400 B |
-| RadixSortLong   | 10000     |    486.020 us |   9.6560 us |  0.44 |     400 B |
-|                 |           |               |             |       |           |
-| ArraySortByte   | 100000    |  7,933.538 us | 157.1494 us |  1.00 |     400 B |
-| RadixSortByte   | 100000    |  1,426.461 us | 118.2472 us |  0.17 |     400 B |
-| ArraySortSByte  | 100000    |  8,508.345 us | 167.9675 us |  1.07 |     400 B |
-| RadixSortSByte  | 100000    |  1,658.835 us | 143.4817 us |  0.21 |      64 B |
-| ArraySortShort  | 100000    | 11,133.854 us | 216.1598 us |  1.42 |     400 B |
-| RadixSortShort  | 100000    |  3,164.255 us | 195.2751 us |  0.40 |     400 B |
-| ArraySortUShort | 100000    | 10,517.872 us | 207.5001 us |  1.33 |     112 B |
-| RadixSortUShort | 100000    |  3,095.139 us | 168.2012 us |  0.39 |      64 B |
-| ArraySortUInt   | 100000    | 12,204.662 us | 244.0688 us |  1.53 |     400 B |
-| RadixSortUInt   | 100000    |  4,701.356 us | 184.5410 us |  0.59 |     400 B |
-| ArraySortInt    | 100000    | 12,093.167 us | 237.8599 us |  1.52 |      64 B |
-| RadixSortInt    | 100000    |  4,910.705 us | 197.3270 us |  0.63 |     112 B |
-| ArraySortULong  | 100000    | 12,168.754 us | 240.7449 us |  1.53 |     400 B |
-| RadixSortULong  | 100000    | 10,370.201 us | 351.6483 us |  1.35 |     400 B |
-| ArraySortLong   | 100000    | 12,033.173 us | 240.4887 us |  1.51 |     400 B |
-| RadixSortLong   | 100000    |  9,131.737 us | 268.7225 us |  1.15 |      64 B |
-```
-
-ClassTypeSort TestCode:
-
+Benchmark ClassTypeSort code
 ```csharp
-using BenchmarkDotNet.Attributes;
-using LYP_Sort.LSortLib.LRadixSort;
-
-namespace LYP_Sort_Test;
-
 [MemoryDiagnoser]
 public class BenchmarkSortWithBytePoint
 {
